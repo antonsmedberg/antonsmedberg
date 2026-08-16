@@ -31,7 +31,7 @@ Building native mobile applications with Swift, SwiftUI, and Swift Concurrency. 
 ## Education
 
 - **400 YH-point Java Developer diploma** — Grit Academy (2026)
-- Coursework archive: [academy-coursework](https://github.com/antonsmedberg/academy-coursework)
+- Coursework archive: [academy-coursework](https://github.com/antonsmedberg/academy-coursework) (2023–2026)
 
 ## Contact
 
