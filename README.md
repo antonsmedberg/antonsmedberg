@@ -8,12 +8,6 @@ Malmö · Lund · Öresund — open to on-site & hybrid roles
 
 [Portfolio](https://antonsmedberg.github.io/) · [LinkedIn](https://www.linkedin.com/in/anton-smedberg-a9aa6121b/) · [Email](mailto:anton@smedberg.eu)
 
-![Swift](https://img.shields.io/badge/Swift-F05138?style=flat-square&logo=swift&logoColor=white)
-![SwiftUI](https://img.shields.io/badge/SwiftUI-006BFF?style=flat-square&logo=swift&logoColor=white)
-![iOS](https://img.shields.io/badge/iOS-000000?style=flat-square&logo=apple&logoColor=white)
-![Kotlin](https://img.shields.io/badge/Kotlin-7F52FF?style=flat-square&logo=kotlin&logoColor=white)
-![Metal](https://img.shields.io/badge/Metal-1E1E1E?style=flat-square)
-
 </div>
 
 I build native iOS software with a focus on concurrency, API integration, and reliable product behavior.
@@ -28,9 +22,22 @@ My background also includes Android development with Kotlin and Jetpack Compose,
 
 An open-source Swift package exploring GPU-first UI on iOS.
 
+![License](https://img.shields.io/github/license/antonsmedberg/MetalVisualKit?style=flat-square)
+![Last commit](https://img.shields.io/github/last-commit/antonsmedberg/MetalVisualKit?style=flat-square)
+
 - A Metal compute particle system with 1,400+ particles
 - A LiDAR point-cloud renderer unprojecting ~49,000 points per frame
 - MIT-licensed, ships with an example app and DocC documentation
+
+<details>
+<summary>Technical details</summary>
+
+- SPM package with 15-test suite covering the compute pipeline
+- 1,400-particle Metal compute loader
+- LiDAR renderer unprojects ~49,000 points per frame on-GPU
+- Published Aug 2026
+
+</details>
 
 ### [DeviceMonitor](https://github.com/antonsmedberg/DeviceMonitor-Examensarbete)
 
@@ -39,6 +46,10 @@ An iOS degree-project prototype for viewing device state and status history.
 - Built with SwiftUI, SwiftData, and Swift concurrency
 - Six unit tests, a UI smoke test, and a simulator-verified interface
 - Clear service, storage, and view-model boundaries
+
+### Subtl — on-device video captioning
+
+Generates captions entirely on-device using Apple's SpeechAnalyzer/SpeechTranscriber — no uploads, no account required. Built on Swift 6 strict concurrency. Currently in development.
 
 ## Experience
 
