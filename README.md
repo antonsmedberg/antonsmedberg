@@ -39,7 +39,7 @@ An open-source Swift package exploring GPU-first UI on iOS.
 
 </details>
 
-### [DeviceMonitor](https://github.com/antonsmedberg/DeviceMonitor-Examensarbete)
+### [DeviceMonitor](https://github.com/antonsmedberg/DeviceMonitor)
 
 An iOS degree-project prototype for viewing device state and status history.
 
