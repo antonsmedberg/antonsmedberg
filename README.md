@@ -2,70 +2,112 @@
 
 # Anton Smedberg
 
-**iOS Developer** · Swift · SwiftUI · Swift Concurrency
+**iOS Developer** · Swift · SwiftUI · Swift Concurrency · Metal · AVFoundation
 
-Malmö · Lund · Öresund — open to on-site & hybrid roles
+Malmö · Lund · Öresund · Greater Copenhagen — on-site, hybrid or remote
 
-[Portfolio](https://antonsmedberg.github.io/) · [LinkedIn](https://www.linkedin.com/in/anton-smedberg-a9aa6121b/) · [Email](mailto:anton@smedberg.eu)
+[Portfolio](https://antonsmedberg.github.io/) · [LinkedIn](https://www.linkedin.com/in/anton-smedberg-a9aa6121b/) · [anton@smedberg.eu](mailto:anton@smedberg.eu)
 
 </div>
 
-I build native iOS software with a focus on concurrency, API integration, and reliable product behavior.
+I build native iOS apps in Swift and SwiftUI. Most of my work sits where concurrency meets media and system frameworks: `async/await` and actors under Swift 6 strict concurrency, AVFoundation pipelines, Metal rendering, on-device speech.
 
-During a five-month internship with the iOS Mobile Apps team at **Axis Communications** in Lund, I shipped Swift and SwiftUI changes into a live production codebase alongside iOS and Android engineers. I worked with debugging, UI improvements, and quality assurance in an agile product team.
+For five months I worked in the Mobile Apps team at **Axis Communications** in Lund. I shipped Swift and SwiftUI features and bug fixes in an established production codebase — live-video controls for microphone, speaker and PTZ, an interactive SwiftUI Canvas interface, and a migration of selected asynchronous flows to `async/await` under strict Swift Concurrency requirements. I instrumented a multi-step workflow with Datadog and OpenTelemetry so failures could be traced instead of guessed at. Every task went through pull request, code review, testing and QA alongside iOS and Android developers.
 
-My background also includes Android development with Kotlin and Jetpack Compose, plus a Java software-development degree. I am looking for early-career iOS roles across Skåne, Öresund, and remote teams in Sweden.
+Since then I have built my own projects end to end: architecture, tests, CI, documentation, release. I am looking for an iOS role in Skåne or across the bridge where code quality and knowledge sharing shape the daily work.
+
+*iOS-utvecklare i Malmö/Lund. Öppen för roller i Skåne, Öresundsregionen och Köpenhamn.*
+
+---
 
 ## Selected work
 
-### [MetalVisualKit](https://github.com/antonsmedberg/MetalVisualKit)
-
-An open-source Swift package exploring GPU-first UI on iOS.
+### [MetalVisualKit](https://github.com/antonsmedberg/MetalVisualKit) — GPU rendering as a Swift package
 
 ![License](https://img.shields.io/github/license/antonsmedberg/MetalVisualKit?style=flat-square)
 ![Last commit](https://img.shields.io/github/last-commit/antonsmedberg/MetalVisualKit?style=flat-square)
 
-- A Metal compute particle system with 1,400+ particles
-- A LiDAR point-cloud renderer unprojecting ~49,000 points per frame
-- MIT-licensed, ships with an example app and DocC documentation
+An MIT-licensed SPM package for GPU-first UI on iOS: a Metal compute simulation of roughly 1,400 particles, and a LiDAR point-cloud renderer that unprojects about 49,000 points per frame on the GPU.
+
+`Swift` `Metal` `MetalKit` `ARKit` `SwiftUI` `Swift Package Manager` `DocC` `GitHub Actions`
 
 <details>
-<summary>Technical details</summary>
+<summary>Engineering details</summary>
 
-- SPM package with 15-test suite covering the compute pipeline
-- 1,400-particle Metal compute loader
-- LiDAR renderer unprojects ~49,000 points per frame on-GPU
-- Published Aug 2026
+- 15-test suite covering the compute pipeline, run in CI on every push
+- Example app shipped in the repo, DocC archive built from source
+- Custom `depthPalette()` instead of the standard turbo colormap
+- Verified in an iOS 26.5 simulator with Xcode 26.6; on-device LiDAR validation is the remaining step before the v0.1.0 tag
 
 </details>
 
-### [DeviceMonitor](https://github.com/antonsmedberg/DeviceMonitor)
+### [DeviceMonitor](https://github.com/antonsmedberg/DeviceMonitor) — degree project, device status and history
 
-An iOS degree-project prototype for viewing device state and status history.
+An iOS app for viewing device state over time, built to be readable and testable rather than clever. Service, storage and view-model boundaries are separated, persistence is local, and the test suite runs in CI.
 
-- Built with SwiftUI, SwiftData, and Swift concurrency
-- Six unit tests, a UI smoke test, and a simulator-verified interface
-- Clear service, storage, and view-model boundaries
+`Swift` `SwiftUI` `SwiftData` `MVVM` `Swift Concurrency` `XCTest` `XCUITest` `GitHub Actions`
 
-### Subtl — on-device video captioning
+<details>
+<summary>Engineering details</summary>
 
-Generates captions entirely on-device using Apple's SpeechAnalyzer/SpeechTranscriber — no uploads, no account required. Built on Swift 6 strict concurrency. Currently in development.
+- Six unit tests plus a UI smoke test, run on GitHub Actions
+- Search and filtering over persisted history
+- Written as my final project (examensarbete) and kept as a reference for how I structure a codebase
+
+</details>
+
+### Subtl — on-device video captioning *(in development)*
+
+Captions for short-form video, generated entirely on device with Apple's SpeechAnalyzer and SpeechTranscriber. No uploads, no account. The transcription engine is an actor, the app is built under Swift 6 strict concurrency, and preview and export are held to the same rendering result so what you see is what you get out.
+
+`Swift 6` `SpeechAnalyzer` `AVFoundation` `Core Animation` `os.Logger` `StoreKit 2`
+
+<details>
+<summary>Engineering details</summary>
+
+- Five caption styles (Karaoke, Boxed, Clean, Pop, Typewriter) driven by a single style source of truth
+- Export composed with `AVVideoCompositionCoreAnimationTool`; preview/export parity enforced
+- Zero third-party dependencies — AVFoundation's hardware acceleration removed the case for FFmpeg
+- Signpost instrumentation for stage timing; Metal effects stay out until profiling justifies them
+
+</details>
+
+---
 
 ## Experience
 
-**Axis Communications** — iOS Developer Intern, Mobile Apps · Lund · Jan–May 2026
+**iOS Developer, LIA — Mobile Apps** · Axis Communications, Lund · Jan–May 2026
+Live-video controls (microphone, speaker, PTZ), SwiftUI Canvas interface, `async/await` migration under strict concurrency, Datadog/OpenTelemetry instrumentation. Jira-based agile workflow: refinement, pull requests, code review, QA.
 
-- Migrated asynchronous flows to async/await under strict Swift Concurrency requirements
-- Built live-video controls covering microphone, speaker, and PTZ interactions
-- Added Datadog and OpenTelemetry instrumentation for traceability and debugging
-- Worked in a Jira-based agile workflow: refinement, pull requests, code review, QA
+**Android Developer, Internship** · Weavy, Malmö · Apr–Nov 2023
+Android chat app in Kotlin and Jetpack Compose with authentication, API integrations and responsive UI.
+
+## Education
+
+**Java Developer — Backend & Web Development** · Grit Academy · 2024–2026
+Higher Vocational Education (Yrkeshögskoleexamen, EQF/SeQF level 5): Java, Spring Boot, JPA, SQL, REST APIs, testing, Git-based workflows.
+
+**iPhone & Android Application Development** · Malmö Yrkeshögskola · 2022–2023
+Swift/iOS, Kotlin/Android, UX. Additional coursework in on-device ML, Python for AI, testing and digital accessibility.
 
 ## Stack
 
-**Core** — Swift · SwiftUI · Swift Concurrency · UIKit · Metal · AVFoundation · ARKit · SwiftData
+**iOS** — Swift · SwiftUI · UIKit · Swift Concurrency · async/await · actors · Combine · SwiftData · AVFoundation · Metal/MetalKit · ARKit · SpeechAnalyzer · MVVM · SPM · accessibility
 
-**Also** — Kotlin · Jetpack Compose · Java · REST APIs · SQL · Git
+**Quality & delivery** — Xcode · XCTest · XCUITest · Git · GitHub Actions · CI · code review · debugging · QA · Jira · Datadog · OpenTelemetry
 
-## Elsewhere
+**Also** — Kotlin · Jetpack Compose · Java · Spring Boot · REST APIs · SQL · JPA · GraphQL
 
-[Portfolio](https://antonsmedberg.github.io/) · [LinkedIn](https://www.linkedin.com/in/anton-smedberg-a9aa6121b/) · [Email](mailto:anton@smedberg.eu)
+## Languages
+
+Swedish (native) · English (professional working proficiency) · reading Danish
+
+---
+
+<div align="center">
+
+[Portfolio](https://antonsmedberg.github.io/) · [LinkedIn](https://www.linkedin.com/in/anton-smedberg-a9aa6121b/) · [anton@smedberg.eu](mailto:anton@smedberg.eu)
+
+A written recommendation from an Engineering Manager at Axis Communications is available on request.
+
+</div>
